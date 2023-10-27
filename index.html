@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Tailwind CSS</title>
-    <link href="dist/output.css" rel="stylesheet" />
+    <link href="dist/css/final.css" rel="stylesheet" />
+    <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
   <body>
     <!-- Header Start -->
@@ -14,7 +25,9 @@
       <div class="container">
         <div class="flex items-center justify-between relative">
           <div class="px-4 font-sans">
-            <a href="#home" class="font-bold text-lg text-dark block py-6"
+            <a
+              href="#home"
+              class="font-bold text-lg text-dark dark:text-white block py-6"
               >darrellnp</a
             >
           </div>
@@ -35,13 +48,13 @@
             </button>
             <nav
               id="nav-menu"
-              class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
+              class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full dark:bg-dark dark:shadow-slate-700 lg:dark:bg-transparent lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
             >
               <ul class="block lg:flex">
                 <li class="group">
                   <a
                     href="#home"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary font-serif"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white font-serif"
                   >
                     Home
                   </a>
@@ -49,7 +62,7 @@
                 <li class="group">
                   <a
                     href="#about"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary font-serif"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white font-serif"
                   >
                     About me
                   </a>
@@ -57,7 +70,7 @@
                 <li class="group">
                   <a
                     href="#portfolio"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary font-serif"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white font-serif"
                   >
                     Portfolio
                   </a>
@@ -65,10 +78,26 @@
                 <li class="group">
                   <a
                     href="#contact"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary font-serif"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white font-serif"
                   >
                     Contact
                   </a>
+                </li>
+                <li class="mt-3 lg:mt-0 flex items-center pl-8">
+                  <div class="flex">
+                    <span class="mr-2 text-sm text-slate-500"> light </span>
+                    <input type="checkbox" class="hidden" id="dark-toggle" />
+                    <label for="dark-toggle">
+                      <div
+                        class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1"
+                      >
+                        <div
+                          class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"
+                        ></div>
+                      </div>
+                    </label>
+                    <span class="ml-2 text-sm text-slate-500"> dark </span>
+                  </div>
                 </li>
               </ul>
             </nav>
@@ -78,13 +107,14 @@
     </header>
     <!-- Header End -->
     <!-- Hero Section start -->
-    <section id="home" class="pt-36">
+    <section id="home" class="pt-36 dark:bg-dark">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full self-center px-4 lg:w-1/2">
             <h1 class="text-base font-semibold text-primary md:text-xl">
               Hello 👋🏼, I'm
-              <span class="block font-bold text-dark text-4xl mt-1 lg:text-4xl"
+              <span
+                class="block font-bold text-dark text-4xl mt-1 lg:text-4xl dark:text-white"
                 >Darrell Nathaniel Prayogi</span
               >
             </h1>
@@ -93,7 +123,7 @@
             </h2>
             <p class="font-medium text-secondary mb-10 leading-relaxed">
               “There are no secrets to success. It is the result of
-              <span class="font-semibold text-dark"
+              <span class="font-semibold text-dark dark:text-white"
                 >preparation, hard work, and learning from failure.</span
               >”
             </p>
@@ -109,10 +139,10 @@
               <img
                 src="dist/img/darrell.png"
                 alt="darrell"
-                class="max-w-full mx-auto"
+                class="relative z-10 max-w-full mx-auto mb-5"
               />
               <span
-                class="absolute top-10 -z-10 left-1/2 -translate-x-1/2 md:scale-125"
+                class="absolute top-10 left-1/2 -translate-x-1/2 md:scale-125"
               >
                 <svg
                   width="500"
@@ -134,14 +164,16 @@
     </section>
     <!-- Hero Section end -->
     <!-- About Section Start -->
-    <section id="about" class="pt-36 pb-32">
+    <section id="about" class="pt-36 pb-32 dark:bg-dark">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full px-4 mb-10 lg:w-1/2">
             <h4 class="font-bold uppercase text-primary text-lg mb-3">
               About Me
             </h4>
-            <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">
+            <h2
+              class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl dark:text-white"
+            >
               Getting know about me
             </h2>
             <p
@@ -165,7 +197,7 @@
           </div>
           <div class="w-full px-4 lg:w-1/2">
             <h3
-              class="font-semibold text-dark text-2xl mb-5 lg:text-3xl lg:pt-11"
+              class="font-semibold text-dark text-2xl mb-5 lg:text-3xl lg:pt-11 dark:text-white"
             >
               Social Media
             </h3>
@@ -191,7 +223,7 @@
               <a
                 href="https://www.instagram.com/darrell.np/"
                 target="_blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 hover:border-primary hover:bg-primary hover:text-white"
+                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 hover:border-primary hover:bg-primary hover:text-white dark:text-slate-300"
               >
                 <svg
                   role="img"
@@ -210,7 +242,7 @@
               <a
                 href="https://www.linkedin.com/in/darrell-nathaniel-prayogi-73b1b824b/"
                 target="_blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 hover:border-primary hover:bg-primary hover:text-white"
+                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 hover:border-primary hover:bg-primary hover:text-white dark:text-slate-300"
               >
                 <svg
                   role="img"
@@ -229,7 +261,7 @@
               <a
                 href="https://github.com/darrellnp"
                 target="_blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 hover:border-primary hover:bg-primary hover:text-white"
+                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 hover:border-primary hover:bg-primary hover:text-white dark:text-slate-300"
               >
                 <svg
                   role="img"
@@ -251,14 +283,16 @@
     </section>
     <!-- About Section End -->
     <!-- Portfolio Section Start-->
-    <section id="portfolio" class="pt-36 pb-16 bg-slate-700">
+    <section id="portfolio" class="pt-36 pb-16 bg-slate-700 dark:bg-slate-300">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold uppercase text-primary text-lg mb-2">
               Portfolio
             </h4>
-            <h2 class="font-bold text-white text-3xl mb-4">Projects</h2>
+            <h2 class="font-bold text-white text-3xl mb-4 dark:text-dark">
+              Projects
+            </h2>
             <p class="font-medium text-md text-secondary">
               In this section, you'll discover a collection of my most notable
               and impactful projects. Each project represents a unique challenge
@@ -279,7 +313,9 @@
                 <img src="dist/img/1.png" alt="Portfolio" width="w-full" />
               </a>
             </div>
-            <h3 class="font-semibold text-xl text-white mt-5 mb-3 font-sans">
+            <h3
+              class="font-semibold text-xl text-white mt-5 mb-3 font-sans dark:text-dark"
+            >
               Portfolio website
             </h3>
             <p
@@ -300,7 +336,9 @@
                 ><img src="dist/img/2.png" alt="Landing Page" width="w-full"
               /></a>
             </div>
-            <h3 class="font-semibold text-xl text-white mt-5 mb-3 font-sans">
+            <h3
+              class="font-semibold text-xl text-white mt-5 mb-3 font-sans dark:text-dark"
+            >
               Android Flashcard app
             </h3>
             <p
@@ -318,7 +356,7 @@
     </section>
     <!-- Portfolio Section End-->
     <!-- Contact Start -->
-    <section id="contact" class="pt-36 pb-32">
+    <section id="contact" class="pt-36 pb-32 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
@@ -326,7 +364,7 @@
               Contact
             </h4>
             <h2
-              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl"
+              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
               Contact me
             </h2>
@@ -530,6 +568,15 @@
       </div>
     </footer>
     <!-- Footer End -->
+    <!-- Back to top start -->
+    <a
+      href="#home"
+      class="hidden fixed bottom-4 right-4 z-[9999] justify-center h-14 w-14 items-center bg-primary rounded-full p-4 hover:animate-pulse"
+      id="to-top"
+    >
+      <span class="block h-5 w-5 border-t-2 border-l-2 rotate-45 mt-2"> </span>
+    </a>
+    <!-- Back to top end -->
     <!-- JavaScript -->
     <script src="dist/js/script.js"></script>
   </body>
