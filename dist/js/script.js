@@ -55,3 +55,15 @@ if (
 } else {
   darkToggle.checked = false;
 }
+
+//contact form
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbygOKiebNnKrm7h0pjoqAOXlIy4m_n65y6V6cYhZB2QraF9r3oWB1rEyYCiZvuj_vNp/exec";
+const form = document.forms["contact-form"];
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  fetch(scriptURL, { method: "POST", body: new FormData(form) })
+    .then((response) => console.log("Success!", response))
+    .catch((error) => console.error("Error!", error.message));
+});

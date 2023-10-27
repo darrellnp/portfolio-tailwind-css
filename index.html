@@ -376,7 +376,7 @@
             </p>
           </div>
         </div>
-        <form>
+        <form name="contact-form">
           <div class="w-full lg:w-2/3 lg:mx-auto">
             <div class="w-full px-4 mb-8">
               <label for="name" class="text-base text-primary font-bold"
@@ -385,6 +385,7 @@
               <input
                 type="text"
                 id="name"
+                name="name"
                 placeholder="Your name"
                 class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
               />
@@ -396,6 +397,7 @@
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="Email Address"
                 class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
               />
@@ -405,8 +407,9 @@
                 >Message
               </label>
               <textarea
-                type="email"
-                id="email"
+                type="message"
+                id="message"
+                name="message"
                 placeholder="Type your message here"
                 class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"
               >
